@@ -21,7 +21,7 @@ const markets = [
     description:
       "Lutyens' Delhi, NCR farmhouses, South Mumbai, Goa and the Himalayan hills.",
     image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
+      "/property1.jpg",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ const markets = [
     description:
       "Waterfront villas, contemporary residences and distinguished city addresses.",
     image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85",
+      "/property2.jpg",
   },
   {
     number: "03",
@@ -39,7 +39,7 @@ const markets = [
     description:
       "Mayfair, Knightsbridge, the Cotswolds and the Surrey countryside.",
     image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1400&q=85",
+      "/property3.jpg",
   },
   {
     number: "04",
@@ -48,7 +48,7 @@ const markets = [
     description:
       "Highland estates, lochside homes and distinguished rural retreats.",
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "/property4.jpg",
   },
 ];
 
@@ -176,30 +176,44 @@ export default function Home() {
       </header>
 
       {/* Hero */}
+
       <section className="iris-hero" id="home">
-        <Image
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90"
-          alt="Contemporary luxury residence surrounded by greenery"
-          fill
-          priority
-          sizes="100vw"
-          className="hero-image"
-        />
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="iris-hero__video"
+        >
+          <source
+            src="https://iris-living-spaces.lovable.app/__l5e/assets-v1/0d401621-162f-4ef0-abc5-95ed22093865/hero-global-mobile.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-        <div className="hero-shade" />
+        {/* Contrast overlays */}
+        <div className="iris-hero__shade" />
 
-        <div className="hero-topline">
+        {/* Top information */}
+        <div className="iris-hero__topline">
           <span>PRIVATE REAL ESTATE ADVISORY</span>
-          <span>INDIA · DUBAI · LONDON · SCOTLAND</span>
+          <span className="iris-hero__locations">
+            INDIA <i /> DUBAI <i /> LONDON <i /> SCOTLAND
+          </span>
         </div>
 
+        {/* Main content */}
         <motion.div
-          className="hero-content"
-          initial={{ opacity: 0, y: 32 }}
+          className="iris-hero__content"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <p className="eyebrow light-eyebrow">
+          <p className="iris-hero__eyebrow">
+            <span />
             PROPERTY. PLACE. PERSPECTIVE.
           </p>
 
@@ -209,23 +223,30 @@ export default function Home() {
             <em>Wealth preserved.</em>
           </h1>
 
-          <p className="hero-description">
+          <p className="iris-hero__description">
             A more considered approach to property, ownership
             and the legacy you leave behind.
           </p>
 
-          <Link href="#markets" className="hero-button">
-            Explore IRIS <ArrowUpRight size={17} />
+          <Link href="#markets" className="iris-hero__button">
+            <span>Explore IRIS</span>
+            <ArrowUpRight size={18} />
           </Link>
         </motion.div>
 
-        <div className="hero-bottom">
-          <span>01 — A GLOBAL PERSPECTIVE</span>
-          <Link href="#intro">
-            DISCOVER OUR APPROACH <ArrowDownRight size={15} />
+        {/* Bottom information */}
+        <div className="iris-hero__bottom">
+          <span className="iris-hero__index">
+            <span>01</span> — A GLOBAL PERSPECTIVE
+          </span>
+
+          <Link href="#intro" className="iris-hero__discover">
+            DISCOVER OUR APPROACH
+            <ArrowDownRight size={16} />
           </Link>
         </div>
       </section>
+
 
       {/* Introduction */}
       <section className="intro-section section-pad" id="intro">
